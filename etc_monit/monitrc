@@ -1,0 +1,24 @@
+
+set daemon 120
+set logfile /var/log/monit.log
+set idfile /var/lib/monit/id
+set statefile /var/lib/monit/state
+
+set eventqueue
+      basedir /var/lib/monit/events 
+      slots 100
+
+set mail-format {
+      from: monit@$HOST
+   subject: monit alert --  $EVENT $SERVICE
+   message: $EVENT Service $SERVICE
+                 Date:        $DATE
+                 Action:      $ACTION
+                 Host:        $HOST
+                 Description: $DESCRIPTION
+
+            Your faithful employee,
+            Monit
+ }
+
+include /etc/monit/conf.d/*
