@@ -1,4 +1,4 @@
-FROM centos:6
+FROM centos:centos6
 MAINTAINER Alex Levin
 
 RUN yum -y install http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
